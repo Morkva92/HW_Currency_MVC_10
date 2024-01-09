@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Show Data</title>
+</head>
+<body>
+
+<th:block th:if="${currencies.empty}">
+    <p>No data available</p>
+</th:block>
+
+<th:block th:unless="${currencies.empty}">
+    <h2>Currency Data:</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Currency Code</th>
+            <th>Exchange Date</th>
+            <th>Rate</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="currency : ${currencies}">
+            <td th:text="${currency.id}"></td>
+            <td th:text="${currency.currencyCode}"></td>
+            <td th:text="${currency.exchangeDate}"></td>
+            <td th:text="${currency.rate}"></td>
+        </tr>
+        </tbody>
+    </table>
+</th:block>
+
+</body>
+</html>
